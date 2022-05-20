@@ -1,9 +1,19 @@
 import React, { useState } from 'react'
+import {useDispatch} from 'react-redux'
+import { deposit } from './actions'
 
 function Banking() {
   const[amount,setAmount] = useState(0)
+
+  const dispatch = useDispatch()
+
   const handleChange =(e)=>{
     setAmount(e.target.value)
+  }
+
+  const handleDeposit =() =>{
+    dispatch(deposit(amount))
+
   }
   return (
     <div className='field'>
